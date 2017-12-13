@@ -1,9 +1,12 @@
-const { NODE_ENV } = process.env;
-
+const { NODE_ENV, BABEL_ENV } = process.env;
+console.log({
+  NODE_ENV,
+  BABEL_ENV,
+});
 module.exports = {
   presets: [
     ['env', {
-      module: NODE_ENV === 'test' ? undefined : false,
+      modules: BABEL_ENV === 'build' ? false : 'commonjs',
       targets: {
         node: 'current',
         browsers: 'ie 11',

@@ -1,6 +1,7 @@
 {
   "extends": "@17media/17media",
   "env": {
-    "jest": true
+    "jest": true,
+    "shelljs": true
   }
 }
