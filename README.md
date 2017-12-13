@@ -2,7 +2,7 @@
   daddy
 </h1>
 <p align="center">
-  <a href="https://travis-ci.org/daddy" alt="Build Status">
+  <a href="https://travis-ci.org/17media/daddy" alt="Build Status">
     <img src="https://img.shields.io/travis/17media/daddy.svg?style=flat-square&" />
   </a>
   <a href="https://codecov.io/gh/17media/daddy" alt="Coverage">
