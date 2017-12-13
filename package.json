@@ -1,6 +1,8 @@
 {
   "name": "@17media/daddy",
   "version": "0.0.1",
+  "repository": "https://github.com/17media/daddy.git",
+  "author": "Rocky Wu <rocky@17.media>",
   "main": "dist/daddy.js",
   "license": "MIT",
   "devDependencies": {
@@ -21,9 +23,7 @@
     "rollup-plugin-babel": "^3.0.2",
     "shelljs": "^0.7.8"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
