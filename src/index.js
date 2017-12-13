@@ -1,11 +1,11 @@
-import Daddy from './libs/Daddy';
+import Dad from './libs/Dad';
 
-const daddy = (...args) => new Daddy(...args);
+const dad = (...args) => new Dad(...args);
 
-export default daddy;
+export default dad;
 export { isToday } from './libs/isToday';
 export { now } from './libs/now';
 
-export const tw = (...args) => daddy(...args).tw;
-export const ja = (...args) => daddy(...args).ja;
-export const indo = (...args) => daddy(...args).indo;
+export const tw = (...args) => dad(...args).tw;
+export const ja = (...args) => dad(...args).ja;
+export const indo = (...args) => dad(...args).indo;

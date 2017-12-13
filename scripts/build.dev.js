@@ -18,7 +18,7 @@ rollup
   .then(bundle =>
     bundle.write({
       format: 'umd',
-      name: 'Daddy',
+      name: 'Dad',
       file: `out/${pkg.main}`,
       exports: 'named',
     }),

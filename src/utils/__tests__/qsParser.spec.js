@@ -2,12 +2,12 @@ import qsParser from '../qsParser';
 
 describe('qsParser Spec', () => {
   it('test location.search spec', async () => {
-    expect(qsParser('?foo=17&daddy.now=2017-12-12 18:00&bar=media'))
+    expect(qsParser('?foo=17&dad.now=2017-12-12 18:00&bar=media'))
       .toBe('2017-12-12 18:00');
   });
 
   it('Node env by cli', async () => {
-    expect(qsParser('--foo&17&--daddy.now=2017-12-12 00:00&--bar'))
+    expect(qsParser('--foo&17&--dad.now=2017-12-12 00:00&--bar'))
       .toBe('2017-12-12 00:00');
   });
 
@@ -16,7 +16,7 @@ describe('qsParser Spec', () => {
   });
 
   it('test if argv is passed', async () => {
-    process.argv = [null, null, '--foo', '17', '--daddy.now=2017-12-12 19', '--bar'];
+    process.argv = [null, null, '--foo', '17', '--dad.now=2017-12-12 19', '--bar'];
     expect(qsParser()).toBe('2017-12-12 19');
   });
 });

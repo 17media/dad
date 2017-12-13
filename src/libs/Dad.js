@@ -11,7 +11,7 @@ const getTime = (Date) => {
 };
 
 const wm = new WeakMap();
-export default class Daddy {
+export default class Dad {
   constructor(date) {
     if (!dateForamtRE.test(date)) {
       throw new Error('Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`');

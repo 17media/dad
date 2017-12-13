@@ -1,9 +1,9 @@
 {
-  "name": "@17media/daddy",
+  "name": "@17media/dad",
   "version": "0.0.1",
-  "repository": "https://github.com/17media/daddy.git",
+  "repository": "https://github.com/17media/dad.git",
   "author": "Rocky Wu <rocky@17.media>",
-  "main": "dist/daddy.js",
+  "main": "dist/dad.js",
   "license": "MIT",
   "devDependencies": {
     "@17media/eslint-config-17media": "^1.2.0",

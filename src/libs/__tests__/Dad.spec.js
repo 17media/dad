@@ -1,47 +1,43 @@
-import daddy, { tw, ja, indo } from '../../';
+import dad, { tw, ja, indo } from '../../';
 
-describe('Daddy Spec', () => {
+describe('Dad Spec', () => {
   it('test tw', () => {
-    expect(daddy('2017-12-13').tw.time)
+    expect(dad('2017-12-13').tw.time)
       .toBe(new Date('2017-12-13 00:00:00+08:00').getTime());
 
-    expect(daddy('2017-12-13').tw.unix)
+    expect(dad('2017-12-13').tw.unix)
       .toBe(new Date('2017-12-13 00:00:00+08:00').getTime() / 1000);
 
     expect(tw('2017-12-13'))
-      .toMatchObject(daddy('2017-12-13').tw);
+      .toMatchObject(dad('2017-12-13').tw);
   });
 
   it('test ja', () => {
-    expect(daddy('2017-12-13').ja.time)
+    expect(dad('2017-12-13').ja.time)
       .toBe(new Date('2017-12-13 00:00:00+09:00').getTime());
 
-    expect(daddy('2017-12-13').ja.unix)
+    expect(dad('2017-12-13').ja.unix)
       .toBe(new Date('2017-12-13 00:00:00+09:00').getTime() / 1000);
 
     expect(ja('2017-12-13'))
-      .toMatchObject(daddy('2017-12-13').ja);
+      .toMatchObject(dad('2017-12-13').ja);
   });
 
   it('test indo', () => {
-    expect(daddy('2017-12-13').indo.time)
+    expect(dad('2017-12-13').indo.time)
       .toBe(new Date('2017-12-13 00:00:00+07:00').getTime());
 
-    expect(daddy('2017-12-13').indo.unix)
+    expect(dad('2017-12-13').indo.unix)
       .toBe(new Date('2017-12-13 00:00:00+07:00').getTime() / 1000);
 
     expect(indo('2017-12-13'))
-      .toMatchObject(daddy('2017-12-13').indo);
+      .toMatchObject(dad('2017-12-13').indo);
   });
 
   it('invalid date format', () => {
     expect(() => {
-      daddy('2017/12/13');
+      dad('2017/12/13');
     })
       .toThrowError('Invaild date string format');
-  });
-
-  it('test daddy.now', async () => {
-
   });
 });

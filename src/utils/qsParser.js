@@ -1,5 +1,5 @@
 const global = (1, eval)('this'); // eslint-disable-line no-eval
-const parseRE = /\b(--)?daddy\.now=([^&]+)/;
+const parseRE = /\b(--)?dad\.now=([^&]+)/;
 
 export default (qstring = '') => {
   let qs = qstring;
