@@ -5,7 +5,7 @@ describe('now Test Spec', () => {
     const a = Date.now();
     const b = now();
 
-    expect(a).toBe(b);
+    expect(a).toBeGreaterThanOrEqual(b);
   });
 
   it('test if hand-code date and time', () => {
