@@ -1,4 +1,4 @@
-import now from '../now';
+import { now } from '../now';
 
 describe('now Test Spec', () => {
   it('test spec', async () => {
