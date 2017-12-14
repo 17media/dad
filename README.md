@@ -2,6 +2,9 @@
   dad
 </h1>
 <p align="center">
+  <a href="https://github.com/17media/dad/releases">
+    <img src="https://img.shields.io/github/release/17media/dad.svg?style=flat-square&" />
+  </a>
   <a href="https://travis-ci.org/17media/dad" alt="Build Status">
     <img src="https://img.shields.io/travis/17media/dad/master.svg?style=flat-square&" />
   </a>
