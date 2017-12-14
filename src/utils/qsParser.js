@@ -1,4 +1,4 @@
-const global = (1, eval)('this'); // eslint-disable-line no-eval
+const global = new Function('return this')(); // eslint-disable-line no-new-func
 const parseRE = /\b(--)?dad\.now=([^&]+)/;
 
 export default (qstring = '') => {
