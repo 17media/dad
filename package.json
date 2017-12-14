@@ -1,6 +1,6 @@
 {
   "name": "@17media/dad",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/17media/dad.git",
   "author": "Rocky Wu <rocky@17.media>",
   "main": "dist/dad.js",
