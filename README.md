@@ -1,18 +1,21 @@
 <h1 align="center">
-  daddy
+  dad
 </h1>
 <p align="center">
-  <a href="https://travis-ci.org/17media/daddy" alt="Build Status">
-    <img src="https://img.shields.io/travis/17media/daddy/master.svg?style=flat-square&" />
+  <a href="https://travis-ci.org/17media/dad" alt="Build Status">
+    <img src="https://img.shields.io/travis/17media/dad/master.svg?style=flat-square&" />
   </a>
-  <a href="https://codecov.io/gh/17media/daddy" alt="Coverage">
-    <img src="https://img.shields.io/codecov/c/github/17media/daddy/master.svg?style=flat-square&" />
+  <a href="https://codecov.io/gh/17media/dad" alt="Coverage">
+    <img src="https://img.shields.io/codecov/c/github/17media/dad/master.svg?style=flat-square&" />
   </a>
-  <img src="https://img.shields.io/github/license/17media/daddy.svg?style=flat-square&" />
+  <img src="https://img.shields.io/github/license/17media/dad.svg?style=flat-square&" />
 </p>
 
 
-## Why Daddy
+## Why Is Calling Dad?
+`Dad` pronounces like "Date"
+
+## Why Use Dad
 - Humans readable code
 - Easy for testing
 - Zero dependencies
@@ -21,18 +24,18 @@
 ## Installation
 
 ```sh
-$ yarn add https://github.com/17media/daddy#latest
+$ yarn add https://github.com/17media/dad#latest
 ```
 
 ## Usage
 
 ```js
-import daddy from '@17media/daddy'
+import dad from '@17media/dad'
 
-daddy('2017-12-12').tw.time
+dad('2017-12-12').tw.time
 
 // or
-import { tw } from '@17media/daddy'
+import { tw } from '@17media/dad'
 
 tw('2017-12-12').time
 ```
@@ -40,7 +43,7 @@ tw('2017-12-12').time
 ## Valid date format
 `YYYY-MM-DD HH:mm:ss`
 
-You and feel free to omit `HH:mm:ss`, daddy will help you auto suffix `00`.
+You and feel free to omit `HH:mm:ss`, dad will help you auto suffix `00`.
 ## Regions
 Current works regions for event:
 
@@ -53,13 +56,13 @@ Current works regions for event:
 ### .time
 get ms time
 ```js
-daddy('YYYY-MM-DD HH:mm:ss').tw.time
+dad('YYYY-MM-DD HH:mm:ss').tw.time
 ```
 
 ### .unix
 get unix time
 ```js
-daddy('YYYY-MM-DD HH:mm:ss').tw.unix
+dad('YYYY-MM-DD HH:mm:ss').tw.unix
 ```
 
 ## Utils
@@ -72,10 +75,10 @@ Check unix timestamp whether same as Today, this is helpful for vote feature.
 
 in Browser, add URL querystring:
 ```sh
-?daddy.now=2017-12-12 19:00
+?dad.now=2017-12-12 19:00
 ```
 
 in Node:
 ```sh
-$ ndoe entry.js --daddy.now="2017-12-12 19:00"
+$ ndoe entry.js --dad.now="2017-12-12 19:00"
 ```

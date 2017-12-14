@@ -5,11 +5,11 @@ describe('now Test Spec', () => {
     const a = Date.now();
     const b = now();
 
-    expect(a).toBe(b);
+    expect(a).toBeGreaterThanOrEqual(b);
   });
 
   it('test if hand-code date and time', () => {
-    process.argv = [null, null, '--foo', '17', '--daddy.now=2017-12-12 19:30', '--bar'];
+    process.argv = [null, null, '--foo', '17', '--dad.now=2017-12-12 19:30', '--bar'];
     const a = +new Date('2017-12-12 19:30:00');
     const b = now();
 
