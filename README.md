@@ -44,9 +44,12 @@ tw('2017-12-12').time
 ```
 
 ## Valid date format
-`YYYY-MM-DD HH:mm:ss`
+- `YYYY-MM-DD`
+- `YYYY-MM-DD HH`
+- `YYYY-MM-DD HH:mm`
+- `YYYY-MM-DD HH:mm:ss`
 
-You and feel free to omit `HH:mm:ss`, dad will help you auto suffix `00`.
+You can omit `HH:mm:ss`, dad will help you auto suffix `00`.
 ## Regions
 Current works regions for event:
 
@@ -57,13 +60,13 @@ Current works regions for event:
 ## API
 
 ### .time
-get ms time
+Get ms time
 ```js
 dad('YYYY-MM-DD HH:mm:ss').tw.time
 ```
 
 ### .unix
-get unix time
+Get unix time
 ```js
 dad('YYYY-MM-DD HH:mm:ss').tw.unix
 ```
@@ -76,12 +79,12 @@ Check unix timestamp whether same as Today, this is helpful for vote feature.
 ## now()
 `now` is very useful for testing, you can feel free to hard-code current time.
 
-in Browser, add URL querystring:
+In Browser, pass URL querystring:
 ```sh
 ?dad.now=2017-12-12 19:00
 ```
 
-in Node:
+In Node:
 ```sh
 $ ndoe entry.js --dad.now="2017-12-12 19:00"
 ```
