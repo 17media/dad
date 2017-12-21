@@ -1,6 +1,6 @@
 import qsParser from '../qsParser';
 
-describe('qsParser Spec', () => {
+describe('qsParser spec', () => {
   it('test location.search spec', async () => {
     expect(qsParser('?foo=17&dad.now=2017-12-12 18:00&bar=media'))
       .toBe('2017-12-12 18:00');
