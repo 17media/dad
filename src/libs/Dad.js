@@ -2,13 +2,7 @@ import suffix00 from '../utils/suffix00';
 
 const dateForamtRE = /^\d{4}-\d{2}-\d{2}([\sT]\d{2})?(:\d{2})?(:\d{2})?/;
 
-const getTime = (Date) => {
-  const time = +Date;
-  return {
-    time,
-    unix: time / 1000,
-  };
-};
+const getTime = Date => +Date;
 
 const wm = new WeakMap();
 export default class Dad {
