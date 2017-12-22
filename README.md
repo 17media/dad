@@ -1,6 +1,7 @@
 <h1 align="center">
-  dad
+  <img width="128" src="./assets/logo.png" />
 </h1>
+
 <p align="center">
   <a href="https://github.com/17media/dad/releases">
     <img src="https://img.shields.io/github/release/17media/dad.svg?style=flat-square&" />
