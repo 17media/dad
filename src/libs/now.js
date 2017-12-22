@@ -8,13 +8,14 @@ const now = () => {
   const qs = qsParser();
 
   const dadNow = qs['dad.now'] || qs['--dad.now'];
+  const isAuto = qs['--auto'] || qs.auto;
 
   if (typeof startTime === 'undefined') {
     startTime = currentTime;
   }
 
   const timeInterval = dadNow ? startTime - +new Date(suffix00(dadNow)) : 0;
-  const timeDuration = dadNow && !qs.auto ? currentTime - startTime : 0;
+  const timeDuration = dadNow && !isAuto ? currentTime - startTime : 0;
 
   return currentTime - timeInterval - timeDuration;
 };
