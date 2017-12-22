@@ -2,9 +2,11 @@ import suffix00 from '../utils/suffix00';
 import qsParser from '../utils/qsParser';
 
 const isToday = (ms = 0) => {
-  const qsDateTime = qsParser();
-  const currentTime = qsDateTime
-    ? new Date(suffix00(qsDateTime))
+  const qs = qsParser();
+  const dadNow = qs['--dad.now'] || qs['dad.now'];
+
+  const currentTime = dadNow
+    ? new Date(suffix00(dadNow))
     : new Date();
   return new Date(ms).toDateString() === currentTime.toDateString();
 };

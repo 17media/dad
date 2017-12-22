@@ -1,16 +1,23 @@
-const global = new Function('return this')(); // eslint-disable-line no-new-func
-const parseRE = /\b(--)?dad\.now=([^&]+)/;
+import { isNode } from './env';
 
-export default (qstring = '') => {
-  let qs = qstring;
+const qsParser = (qstring = '') => {
+  const qsObj = {};
+  const qs = qstring || (
+    isNode
+      ? process.argv.slice(2).join('&')
+      : global.location.search
+  );
 
-  if (!qs) {
-    if (global.location) {
-      qs = global.location.search;
-    } else {
-      qs = process.argv.slice(2).join('&');
-    }
+  if (qs) {
+    qs.split('&').forEach((nameValue) => {
+      const [name, value] = nameValue.split('=');
+      Object.assign(qsObj, {
+        [name]: typeof value === 'undefined' ? true : value,
+      });
+    });
   }
 
-  return parseRE.test(qs) && RegExp.$2;
+  return qsObj;
 };
+
+export default qsParser;
