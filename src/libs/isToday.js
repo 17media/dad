@@ -1,5 +1,15 @@
-const isToday = (unixTimestamp = 0) =>
-  new Date(unixTimestamp * 1000).toDateString() === new Date().toDateString();
+import suffix00 from '../utils/suffix00';
+import qsParser from '../utils/qsParser';
+
+const isToday = (ms = 0) => {
+  const qs = qsParser();
+  const dadNow = qs['--dad.now'] || qs['dad.now'];
+
+  const currentTime = dadNow
+    ? new Date(suffix00(dadNow))
+    : new Date();
+  return new Date(ms).toDateString() === currentTime.toDateString();
+};
 
 export {
   isToday,
