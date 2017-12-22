@@ -30,17 +30,20 @@
 $ yarn add https://github.com/17media/dad#latest
 ```
 
+## Convention
+`dad`'s API interface always input `ms` and return `ms`
+
 ## Usage
 
 ```js
 import dad from '@17media/dad'
 
-dad('2017-12-12').tw.time
+dad('2017-12-12').tw
 
 // or
 import { tw } from '@17media/dad'
 
-tw('2017-12-12').time
+tw('2017-12-12')
 ```
 
 ## Valid date format
@@ -59,18 +62,6 @@ Current works regions for event:
 
 ## API
 
-### .time
-Get ms time
-```js
-dad('YYYY-MM-DD HH:mm:ss').tw.time
-```
-
-### .unix
-Get unix time
-```js
-dad('YYYY-MM-DD HH:mm:ss').tw.unix
-```
-
 ## Utils
 
 ## isToday([unixTimestamp])
@@ -87,4 +78,16 @@ In Browser, pass URL querystring:
 In Node:
 ```sh
 $ ndoe entry.js --dad.now="2017-12-12 19:00"
+```
+
+pass `--auto` lets time go on:
+
+In Browser:
+```sh
+?dad.now=2017-12-12 19:00&auto
+```
+
+In Node:
+```sh
+$ ndoe entry.js --dad.now="2017-12-12 19:00" --auto
 ```
