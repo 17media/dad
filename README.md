@@ -64,8 +64,8 @@ Current works regions for event:
 
 ## Utils
 
-## isToday([unixTimestamp])
-Check unix timestamp whether same as Today, this is helpful for vote feature.
+## isToday(ms)
+Check ms timestamp whether same as Today, this is helpful for vote feature.
 
 ## now()
 `now` is very useful for testing, you can feel free to hard-code current time.
