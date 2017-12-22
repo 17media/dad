@@ -1,6 +1,6 @@
-<h1 align="center">
+<p align="center">
   <img width="128" src="./assets/logo.png" />
-</h1>
+</p>
 
 <p align="center">
   <a href="https://github.com/17media/dad/releases">
