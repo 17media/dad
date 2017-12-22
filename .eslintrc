@@ -1,5 +1,5 @@
 {
-  "extends": "@17media/17media",
+  "extends": "@17media/eslint-config-17media",
   "env": {
     "jest": true,
     "shelljs": true

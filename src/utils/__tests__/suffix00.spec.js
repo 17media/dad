@@ -1,6 +1,6 @@
 import suffix00 from '../suffix00';
 
-describe('suffix00 Spec', () => {
+describe('suffix00 spec', () => {
   it('omit hh:mm:ss', () => {
     expect(suffix00('2017-12-12')).toBe('2017-12-12 00:00:00');
   });

@@ -1,18 +1,26 @@
 import suffix00 from '../utils/suffix00';
 import qsParser from '../utils/qsParser';
 
-const now = () => {
-  let ts = Date.now();
-  const qsDateTime = qsParser();
+let startTime;
 
-  if (qsDateTime) {
-    ts = +new Date(suffix00(qsDateTime));
+const now = () => {
+  const currentTime = Date.now();
+  const qs = qsParser();
+
+  const dadNow = qs['dad.now'] || qs['--dad.now'];
+
+  if (typeof startTime === 'undefined') {
+    startTime = currentTime;
   }
 
-  return ts;
+  const timeInterval = dadNow ? startTime - +new Date(suffix00(dadNow)) : 0;
+  const timeDuration = dadNow && !qs.auto ? currentTime - startTime : 0;
+
+  return currentTime - timeInterval - timeDuration;
 };
+
+export default now;
 
 export {
   now,
 };
-export default now;
