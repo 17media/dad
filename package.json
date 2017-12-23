@@ -17,14 +17,14 @@
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^3.0.0",
-    "jest": "^21.2.1",
+    "jest": "^22.0.4",
     "pump": "^2.0.0",
-    "rollup": "^0.52.1",
-    "rollup-plugin-babel": "^3.0.2",
+    "rollup": "^0.53.0",
+    "rollup-plugin-babel": "^3.0.3",
     "shelljs": "^0.7.8"
   },
   "dependencies": {
-    "ienv": "^0.0.1"
+    "ienv": "^0.0.2"
   },
   "jest": {
     "testEnvironment": "node",
