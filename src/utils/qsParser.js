@@ -1,11 +1,11 @@
-import { isNode } from './env';
+import { global, isNode } from 'ienv';
 
 const qsParser = (qstring = '') => {
   const qsObj = {};
   const qs = qstring || (
     isNode
       ? process.argv.slice(2).join('&')
-      : global.location.search
+      : global.location.search.slice(1)
   );
 
   if (qs) {

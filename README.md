@@ -1,6 +1,7 @@
-<h1 align="center">
-  dad
-</h1>
+<p align="center">
+  <img width="128" src="./assets/logo.png" />
+</p>
+
 <p align="center">
   <a href="https://github.com/17media/dad/releases">
     <img src="https://img.shields.io/github/release/17media/dad.svg?style=flat-square&" />
@@ -21,7 +22,6 @@
 ## Why Use Dad
 - Humans readable code
 - Easy for testing
-- Zero dependencies
 - Works in Node and Browser
 
 ## Installation
@@ -64,8 +64,8 @@ Current works regions for event:
 
 ## Utils
 
-## isToday([unixTimestamp])
-Check unix timestamp whether same as Today, this is helpful for vote feature.
+## isToday(ms)
+Check ms timestamp whether same as Today, this is helpful for vote feature.
 
 ## now()
 `now` is very useful for testing, you can feel free to hard-code current time.
