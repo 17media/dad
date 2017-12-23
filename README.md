@@ -22,7 +22,6 @@
 ## Why Use Dad
 - Humans readable code
 - Easy for testing
-- Zero dependencies
 - Works in Node and Browser
 
 ## Installation

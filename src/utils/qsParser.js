@@ -1,4 +1,4 @@
-import { isNode } from './env';
+import { isNode } from 'ienv';
 
 const qsParser = (qstring = '') => {
   const qsObj = {};

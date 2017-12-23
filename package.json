@@ -23,7 +23,9 @@
     "rollup-plugin-babel": "^3.0.2",
     "shelljs": "^0.7.8"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ienv": "^0.0.1"
+  },
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
