@@ -29,9 +29,7 @@ export default class Dad {
   }
 
   get hk() {
-    const p = wm.get(this);
-
-    return getTime(new Date(`${suffix00(p.date)}+08:00`));
+    return this.tw;
   }
 
   get indo() {
