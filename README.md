@@ -56,9 +56,7 @@ You can omit `HH:mm:ss`, dad will help you auto suffix `00`.
 ## Regions
 Current works regions for event:
 
-`tw`, `ja` and `indo`
-
-> The time zone of HK is same as TW
+`tw`, `hk`, `ja` and `indo`
 
 ## API
 
