@@ -1,4 +1,4 @@
-import dad, { tw, ja, indo } from '../../';
+import dad, { tw, hk, ja, indo } from '../../';
 
 describe('Dad functionality', () => {
   it('return time in ms where time zone is +8:00', () => {
@@ -7,6 +7,12 @@ describe('Dad functionality', () => {
       .toBe(datetime);
 
     expect(tw('2017-12-13'))
+      .toBe(datetime);
+
+    expect(dad('2017-12-13').hk)
+      .toBe(datetime);
+
+    expect(hk('2017-12-13'))
       .toBe(datetime);
   });
 
