@@ -28,6 +28,12 @@ export default class Dad {
     return getTime(new Date(`${suffix00(p.date)}+08:00`));
   }
 
+  get hk() {
+    const p = wm.get(this);
+
+    return getTime(new Date(`${suffix00(p.date)}+08:00`));
+  }
+
   get indo() {
     const p = wm.get(this);
 
