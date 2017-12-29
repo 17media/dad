@@ -4,7 +4,7 @@ const babel = require('rollup-plugin-babel');
 const pump = require('pump');
 const gu = require('gulp');
 const rename = require('gulp-rename');
-const uglify = require('gulp-uglify');
+const { default: uglify } = require('gulp-uglify-es');
 const size = require('gulp-size');
 
 const pkg = require('../package.json');
@@ -21,6 +21,9 @@ rollup
       name: 'Dad',
       file: `out/${pkg.main}`,
       exports: 'named',
+      globals: {
+        ienv: 'ienv',
+      },
     }),
   )
   .then(() => {

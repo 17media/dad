@@ -16,10 +16,10 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.1.0",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^0.1.9",
     "jest": "^22.0.4",
     "pump": "^2.0.0",
-    "rollup": "^0.53.0",
+    "rollup": "^0.53.1",
     "rollup-plugin-babel": "^3.0.3",
     "shelljs": "^0.7.8"
   },
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "test": "jest src --coverage",
-    "lint:eslint": "eslint ./ --ignore-path ./.gitignore",
-    "build": "rm -rf out && babel src --out-dir out && BABEL_ENV=build node scripts/build.dev"
+    "lint": "eslint ./ --ignore-path ./.gitignore",
+    "build": "rm -rf out && babel src --out-dir out && NODE_ENV=production node scripts/build.dev"
   }
 }
