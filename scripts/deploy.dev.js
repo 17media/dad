@@ -1,5 +1,16 @@
+const { exec } = require('child_process');
+
 const { version, repository } = require('../package.json');
-require('shelljs/global');
+
+const sh = (tstring) => {
+  exec(...tstring, (err, stdout, stderr) => {
+    if (err) {
+      throw new Error(err);
+    }
+
+    console.log(stderr || stdout);
+  });
+};
 
 const {
   TRAVIS_BRANCH,
@@ -15,30 +26,36 @@ const tag = `v${version}`;
 console.log({ TRAVIS_BRANCH, TRAVIS_MATRIX, TRAVIS_PULL_REQUEST_BRANCH });
 
 if (TRAVIS_MATRIX === 'test') {
-  exec('curl -s https://codecov.io/bash | bash');
+  sh`curl -s https://codecov.io/bash | bash`;
 }
 
 if (TRAVIS_BRANCH === 'master') {
-  exec('git config --global user.email "auto_deploy@travis-ci.org"');
-  exec('git config --global user.name "TravisCI"');
-
-  // Add GH Tag
-  exec(`git tag ${tag}`);
-  exec(`git push ${tokenRepo} ${tag}`, {
-    silent: true,
-  });
+  sh`
+    git config --global user.email "auto_deploy@travis-ci.org"
+    git config --global user.name "TravisCI"
+  `;
 
   if (TRAVIS_MATRIX === 'build') {
     // Publish to NPM
-    // exec(`echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc`);
-    // exec('npm publish ./out --access=public');
+    // sh`
+    //   echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc
+    //   npm publish ./out --access=public
+    // `
+
+    // Add GH Tag
+    sh`
+      git tag ${tag}
+      git push ${tokenRepo} ${tag}
+    `
 
     // Publish to gh-pages
-    cd('out');
-    exec('git init');
-    exec('git add .');
-    exec(`git commit -anm '${version}'`);
-    exec(`git push ${tokenRepo} master:latest -f`);
-    exec(`git push ${tokenRepo} master:${version}`);
+    sh`
+      cd out
+      git init
+      git add .
+      git commit -anm "${version}"
+      git push ${tokenRepo} master:latest -f
+      git push ${tokenRepo} master:${version}
+    `
   }
 }
