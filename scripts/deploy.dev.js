@@ -46,7 +46,7 @@ if (TRAVIS_BRANCH === 'master') {
     sh`
       git tag ${tag}
       git push ${tokenRepo} ${tag}
-    `
+    `;
 
     // Publish to gh-pages
     sh`
@@ -56,6 +56,6 @@ if (TRAVIS_BRANCH === 'master') {
       git commit -anm "${version}"
       git push ${tokenRepo} master:latest -f
       git push ${tokenRepo} master:${version}
-    `
+    `;
   }
 }
