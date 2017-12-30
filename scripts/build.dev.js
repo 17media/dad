@@ -48,5 +48,7 @@ const pkg = require('../package.json');
       gzip: true,
     }),
   );
-})();
-
+})()
+  .catch((r) => {
+    console.log(r.stack);
+  });
