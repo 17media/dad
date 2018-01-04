@@ -1,15 +1,12 @@
-import suffix00 from '../utils/suffix00';
-import qsParser from '../utils/qsParser';
+import { now } from './now';
 
 const isToday = (sec = 0) => {
-  const msec = sec * 1000;
-  const qs = qsParser();
-  const dadNow = qs['--dad.now'] || qs['dad.now'];
+  const ms = sec * 1000;
+  const dadNow = now();
 
-  const currentTime = dadNow
-    ? new Date(suffix00(dadNow))
-    : new Date();
-  return new Date(msec).toDateString() === currentTime.toDateString();
+  const currentDate = new Date(dadNow * 1000);
+
+  return new Date(ms).toDateString() === currentDate.toDateString();
 };
 
 export {
