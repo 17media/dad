@@ -1,0 +1,40 @@
+{
+  "name": "@17media/dad",
+  "version": "2.0.0",
+  "repository": "https://github.com/17media/dad.git",
+  "author": "Rocky Wu <rocky@17.media>",
+  "main": "dist/dad.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@17media/eslint-config-17media": "^1.2.0",
+    "@types/jest": "^22.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.14.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.5.1",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify-es": "^0.1.9",
+    "jest": "^22.0.4",
+    "pump": "^2.0.0",
+    "rollup": "^0.53.3",
+    "rollup-plugin-babel": "^3.0.3"
+  },
+  "dependencies": {
+    "ienv": "^1.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**"
+    ]
+  },
+  "scripts": {
+    "test": "jest src --coverage",
+    "lint": "eslint ./ --ignore-path ./.gitignore",
+    "build": "rm -rf out && babel src --out-dir out && NODE_ENV=production node scripts/build.dev"
+  }
+}
