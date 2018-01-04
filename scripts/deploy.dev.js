@@ -2,8 +2,14 @@ const { exec } = require('child_process');
 
 const { version, repository } = require('../package.json');
 
-const sh = (tstring) => {
-  exec(...tstring, (err, stdout, stderr) => {
+const sh = (tstrings, ...vars) => {
+  const fork = Array.from(tstrings);
+
+  vars.forEach((v, i) => {
+    fork[i] += v;
+  });
+
+  exec(fork.join(''), (err, stdout, stderr) => {
     if (err) {
       throw new Error(err);
     }
