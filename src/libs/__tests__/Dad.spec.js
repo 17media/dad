@@ -40,4 +40,12 @@ describe('Dad functionality', () => {
     })
       .toThrowError('Invaild date string format');
   });
+
+  it('if inpunt is second number', () => {
+    const UTC0105 = new Date('2018-01-05 00:00:00+00:00') / 1000;
+
+    expect(tw(UTC0105).toISOString()).toBe('2018-01-05T08:00:00.000Z');
+    expect(ja(UTC0105).toISOString()).toBe('2018-01-05T09:00:00.000Z');
+    expect(indo(UTC0105).toISOString()).toBe('2018-01-05T07:00:00.000Z');
+  });
 });
