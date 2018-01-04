@@ -1,7 +1,11 @@
 {
   "extends": "@17media/eslint-config-17media",
   "env": {
-    "jest": true,
-    "shelljs": true
+    "jest": true
+  },
+  "rules": {
+    "no-unused-expressions": [
+      2, { "allowTaggedTemplates": true }
+    ]
   }
 }

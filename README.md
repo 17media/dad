@@ -31,7 +31,7 @@ $ yarn add https://github.com/17media/dad#latest
 ```
 
 ## Convention
-`dad`'s API interface always input `ms` and return `ms`
+`dad`'s API interface always input `seconds` and return `seconds`
 
 ## Usage
 
@@ -62,8 +62,8 @@ Current works regions for event:
 
 ## Utils
 
-## isToday(ms)
-Check ms timestamp whether same as Today, this is helpful for vote feature.
+## isToday(seconds)
+Check seconds timestamp whether same as Today, this is helpful for vote feature.
 
 ## now()
 `now` is very useful for testing, you can feel free to hard-code current time.

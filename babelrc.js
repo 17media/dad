@@ -3,13 +3,14 @@ console.log({
   NODE_ENV,
   BABEL_ENV,
 });
+
+const isProd = NODE_ENV === 'production';
 module.exports = {
   presets: [
     ['env', {
-      modules: BABEL_ENV === 'build' ? false : 'commonjs',
+      modules: !isProd && 'commonjs',
       targets: {
-        node: 'current',
-        browsers: 'ie 11',
+        browsers: ['ie 11'],
       },
     }],
   ],
