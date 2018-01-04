@@ -1,8 +1,7 @@
 import suffix00 from '../utils/suffix00';
+import toSec from '../utils/toSec';
 
 const dateForamtRE = /^\d{4}-\d{2}-\d{2}([\sT]\d{2})?(:\d{2})?(:\d{2})?/;
-
-const getTime = Date => +Date;
 
 const wm = new WeakMap();
 export default class Dad {
@@ -19,13 +18,13 @@ export default class Dad {
   get ja() {
     const p = wm.get(this);
 
-    return getTime(new Date(`${suffix00(p.date)}+09:00`));
+    return toSec(new Date(`${suffix00(p.date)}+09:00`));
   }
 
   get tw() {
     const p = wm.get(this);
 
-    return getTime(new Date(`${suffix00(p.date)}+08:00`));
+    return toSec(new Date(`${suffix00(p.date)}+08:00`));
   }
 
   get hk() {
@@ -35,6 +34,6 @@ export default class Dad {
   get indo() {
     const p = wm.get(this);
 
-    return getTime(new Date(`${suffix00(p.date)}+07:00`));
+    return toSec(new Date(`${suffix00(p.date)}+07:00`));
   }
 }
