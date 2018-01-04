@@ -48,4 +48,11 @@ describe('Dad functionality', () => {
     expect(ja(UTC0105).toISOString()).toBe('2018-01-05T09:00:00.000Z');
     expect(indo(UTC0105).toISOString()).toBe('2018-01-05T07:00:00.000Z');
   });
+
+  it('Invaild type', () => {
+    expect(() => {
+      dad({});
+    })
+      .toThrowError('Invaild type');
+  });
 });

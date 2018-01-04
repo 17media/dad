@@ -1,5 +1,6 @@
 /**
- * @param {number} tz
+ * @param {Number} tz
+ * @return {Date}
  */
 const secToDate = tz => (sec = 0) => {
   const D = new Date(sec * 1000);

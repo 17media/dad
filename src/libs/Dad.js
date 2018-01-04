@@ -7,10 +7,13 @@ const dateForamtRE = /^\d{4}-\d{2}-\d{2}([\sT]\d{2})?(:\d{2})?(:\d{2})?/;
 const wm = new WeakMap();
 export default class Dad {
   /**
-   *
-   * @param {string | number} dateOrSec
+   * @param {String | Number} dateOrSec
    */
   constructor(dateOrSec) {
+    if (!/^(string|number)$/.test(typeof dateOrSec)) {
+      throw new Error('Invaild type. it should be `string` | `number`');
+    }
+
     if (typeof dateOrSec === 'string') {
       if (!dateForamtRE.test(dateOrSec)) {
         throw new Error('Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`');
