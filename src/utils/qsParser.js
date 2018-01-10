@@ -5,7 +5,7 @@ const qsParser = (qstring = '') => {
   const qs = qstring || (
     isNode
       ? process.argv.slice(2).join('&')
-      : global.location.search.slice(1)
+      : decodeURIComponent(global.location.search.slice(1))
   );
 
   if (qs) {

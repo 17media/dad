@@ -1,6 +1,7 @@
 import suffix00 from '../utils/suffix00';
 import qsParser from '../utils/qsParser';
 import toSec from '../utils/toSec';
+import isValidDateFormat from '../utils/isValidDateFormat';
 
 let startTime;
 
@@ -9,6 +10,12 @@ const now = () => {
   const qs = qsParser();
 
   const dadNow = qs['dad.now'] || qs['--dad.now'];
+
+
+  if (dadNow && !isValidDateFormat(dadNow)) {
+    throw new Error('Invalid time format in dad.now.');
+  }
+
   const isAuto = qs['--auto'] || qs.auto;
 
   if (typeof startTime === 'undefined') {
