@@ -36,7 +36,7 @@ describe('Dad functionality', () => {
 
   it('throw an error if date format is incorrect', () => {
     expect(() => {
-      dad('2017/12/13');
+      dad('2017/13/32');
     })
       .toThrowError('Invaild date string format');
   });

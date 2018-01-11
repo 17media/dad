@@ -1,8 +1,8 @@
 import suffix00 from '../utils/suffix00';
 import toSec from '../utils/toSec';
 import secToDate from '../utils/secToDate';
+import isValidDateFormat from '../utils/isValidDateFormat';
 
-const dateForamtRE = /^\d{4}-\d{2}-\d{2}([\sT]\d{2})?(:\d{2})?(:\d{2})?/;
 
 const wm = new WeakMap();
 export default class Dad {
@@ -15,7 +15,7 @@ export default class Dad {
     }
 
     if (typeof dateOrSec === 'string') {
-      if (!dateForamtRE.test(dateOrSec)) {
+      if (!isValidDateFormat(dateOrSec)) {
         throw new Error('Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`');
       }
     }

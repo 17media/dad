@@ -15,4 +15,9 @@ describe('now functionality', () => {
 
     expect(currentTime).toBe(DateGeneratedTime);
   });
+
+  it('should throw an error when dad.now time format is invalid', () => {
+    process.argv = [null, null, '--foo', '17', '--dad.now=2017-12-12%adf2019:30', '--bar'];
+    expect(() => now()).toThrowError();
+  });
 });
