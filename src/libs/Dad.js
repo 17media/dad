@@ -1,23 +1,29 @@
-import suffix00 from '../utils/suffix00';
 import toSec from '../utils/toSec';
 import secToDate from '../utils/secToDate';
+import isValidDateFormat from '../utils/isValidDateFormat';
+import unifyTimeFormat from '../utils/unifyTimeFormat';
 
-const dateForamtRE = /^\d{4}-\d{2}-\d{2}([\sT]\d{2})?(:\d{2})?(:\d{2})?/;
 
 const wm = new WeakMap();
 export default class Dad {
   /**
    * @param {String | Number} dateOrSec
    */
-  constructor(dateOrSec) {
-    if (!/^(string|number)$/.test(typeof dateOrSec)) {
+  constructor(inputValue) {
+    if (!/^(string|number)$/.test(typeof inputValue)) {
       throw new Error('Invaild type. it should be `string` | `number`');
     }
 
-    if (typeof dateOrSec === 'string') {
-      if (!dateForamtRE.test(dateOrSec)) {
+    let dateOrSec;
+
+    if (typeof inputValue === 'string') {
+      dateOrSec = unifyTimeFormat(inputValue);
+
+      if (!isValidDateFormat(dateOrSec)) {
         throw new Error('Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`');
       }
+    } else {
+      dateOrSec = inputValue;
     }
 
     const p = wm.set(this, {}).get(this);
@@ -32,7 +38,7 @@ export default class Dad {
       return secToDate(9)(p.dateOrSec);
     }
 
-    return toSec(new Date(`${suffix00(p.dateOrSec)}+09:00`));
+    return toSec(new Date(`${p.dateOrSec}+09:00`));
   }
 
   get tw() {
@@ -42,7 +48,7 @@ export default class Dad {
       return secToDate(8)(p.dateOrSec);
     }
 
-    return toSec(new Date(`${suffix00(p.dateOrSec)}+08:00`));
+    return toSec(new Date(`${p.dateOrSec}+08:00`));
   }
 
   get hk() {
@@ -56,6 +62,6 @@ export default class Dad {
       return secToDate(7)(p.dateOrSec);
     }
 
-    return toSec(new Date(`${suffix00(p.dateOrSec)}+07:00`));
+    return toSec(new Date(`${p.dateOrSec}+07:00`));
   }
 }
