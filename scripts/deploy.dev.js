@@ -1,22 +1,6 @@
-const { exec } = require('child_process');
+const sh = require('sh-exec');
 
 const { version, repository } = require('../package.json');
-
-const sh = (tstrings, ...vars) => {
-  const fork = Array.from(tstrings);
-
-  vars.forEach((v, i) => {
-    fork[i] += v;
-  });
-
-  exec(fork.join(''), (err, stdout, stderr) => {
-    if (err) {
-      throw new Error(err);
-    }
-
-    console.log(stderr || stdout);
-  });
-};
 
 const {
   TRAVIS_BRANCH,

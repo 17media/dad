@@ -21,7 +21,8 @@
     "jest": "^22.0.4",
     "pump": "^2.0.0",
     "rollup": "^0.53.3",
-    "rollup-plugin-babel": "^3.0.3"
+    "rollup-plugin-babel": "^3.0.3",
+    "sh-exec": "^0.1.1"
   },
   "dependencies": {
     "ienv": "^1.0.0"
