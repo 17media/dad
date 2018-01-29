@@ -35,7 +35,7 @@ export default class Dad {
     const p = wm.get(this);
 
     if (typeof p.dateOrSec === 'number') {
-      return secToDate(9)(p.dateOrSec);
+      return secToDate(p.dateOrSec);
     }
 
     return toSec(new Date(`${p.dateOrSec}+09:00`));
@@ -45,7 +45,7 @@ export default class Dad {
     const p = wm.get(this);
 
     if (typeof p.dateOrSec === 'number') {
-      return secToDate(8)(p.dateOrSec);
+      return secToDate(p.dateOrSec);
     }
 
     return toSec(new Date(`${p.dateOrSec}+08:00`));
@@ -59,7 +59,7 @@ export default class Dad {
     const p = wm.get(this);
 
     if (typeof p.dateOrSec === 'number') {
-      return secToDate(7)(p.dateOrSec);
+      return secToDate(p.dateOrSec);
     }
 
     return toSec(new Date(`${p.dateOrSec}+07:00`));
