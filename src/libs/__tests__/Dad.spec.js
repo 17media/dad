@@ -42,9 +42,9 @@ describe('Dad functionality', () => {
   });
 
   it('if input is second number', () => {
-    const UTC0101 = new Date('2018-01-01 00:00:00+08:00') / 1000;
+    const CST0101 = new Date('2018-01-01 00:00:00+08:00') / 1000;
 
-    expect(tw(UTC0101)).toEqual({
+    expect(tw(CST0101)).toEqual({
       year: 2018,
       month: 0,
       date: 1,
@@ -53,7 +53,7 @@ describe('Dad functionality', () => {
       seconds: 0,
       day: 1,
     });
-    expect(ja(UTC0101)).toEqual({
+    expect(ja(CST0101)).toEqual({
       year: 2018,
       month: 0,
       date: 1,
@@ -62,7 +62,7 @@ describe('Dad functionality', () => {
       seconds: 0,
       day: 1,
     });
-    expect(indo(UTC0101)).toEqual({
+    expect(indo(CST0101)).toEqual({
       year: 2017,
       month: 11,
       date: 31,
