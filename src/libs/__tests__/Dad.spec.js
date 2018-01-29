@@ -41,12 +41,36 @@ describe('Dad functionality', () => {
       .toThrowError('Invaild date string format');
   });
 
-  it('if inpunt is second number', () => {
-    const UTC0105 = new Date('2018-01-05 00:00:00+00:00') / 1000;
+  it('if input is second number', () => {
+    const UTC0101 = new Date('2018-01-01 00:00:00+08:00') / 1000;
 
-    expect(tw(UTC0105).toISOString()).toBe('2018-01-05T08:00:00.000Z');
-    expect(ja(UTC0105).toISOString()).toBe('2018-01-05T09:00:00.000Z');
-    expect(indo(UTC0105).toISOString()).toBe('2018-01-05T07:00:00.000Z');
+    expect(tw(UTC0101)).toEqual({
+      year: 2018,
+      month: 0,
+      date: 1,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+      day: 1,
+    });
+    expect(ja(UTC0101)).toEqual({
+      year: 2018,
+      month: 0,
+      date: 1,
+      hours: 1,
+      minutes: 0,
+      seconds: 0,
+      day: 1,
+    });
+    expect(indo(UTC0101)).toEqual({
+      year: 2017,
+      month: 11,
+      date: 31,
+      hours: 23,
+      minutes: 0,
+      seconds: 0,
+      day: 0,
+    });
   });
 
   it('Invaild type', () => {
