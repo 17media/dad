@@ -4,6 +4,7 @@
     "jest": true
   },
   "rules": {
+    "no-debugger": "off",
     "no-unused-expressions": [
       2, { "allowTaggedTemplates": true }
     ]
