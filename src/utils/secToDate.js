@@ -7,7 +7,15 @@ const secToDate = tz => (sec = 0) => {
 
   D.setTime(+D + (tz * 60 * 60 * 1000));
 
-  return D;
+  return {
+    year: D.getUTCFullYear(),
+    month: D.getUTCMonth(),
+    date: D.getUTCDate(),
+    hours: D.getUTCHours(),
+    minutes: D.getUTCMinutes(),
+    seconds: D.getUTCSeconds(),
+    day: D.getUTCDay(),
+  };
 };
 
 export default secToDate;
