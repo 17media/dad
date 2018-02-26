@@ -46,7 +46,7 @@ import { tw } from '@17media/dad'
 tw('2017-12-12')
 // 1513036800
 
-tw(1513036800)
+tw(1514736000)
 // {
 //   year: 2018,
 //   month: 0,
@@ -56,6 +56,8 @@ tw(1513036800)
 //   seconds: 0,
 //   day: 1
 // }
+
+tw(1514736000).format('YYYY/MM/DD hh:mm:ss') //  2018/01/01 00:00:00
 ```
 
 ## Valid date format
