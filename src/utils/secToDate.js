@@ -30,6 +30,8 @@ const secToDate = tz => (sec = 0) => {
     .replace(/m+/, h => (h.length > 1 ? prefix0(date.minutes) : date.minutes))
     .replace(/s+/, h => (h.length > 1 ? prefix0(date.seconds) : date.seconds));
 
+  date.ISO = date.format('YYYY-MM-DDThh:mm:ss');
+
   return date;
 };
 

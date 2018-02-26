@@ -44,4 +44,12 @@ describe('`secToDate` Spec', () => {
       secToDate(9)(s).format('D-M-YY h:m:s YMD')
     ).toBe('4-1-18 9:0:0 YMD');
   });
+
+  it('test ISO date string', () => {
+    const s = new Date('2018-01-04 08:00:00+08:00') / 1000;
+
+    expect(
+      secToDate(9)(s).ISO
+    ).toBe('2018-01-04T09:00:00');
+  });
 });
