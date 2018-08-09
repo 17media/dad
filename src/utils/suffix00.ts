@@ -1,4 +1,4 @@
-const suffix00 = (date) => {
+const suffix00 = (date: string) => {
   const len = date.length;
 
   if (len === 10) {

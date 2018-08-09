@@ -4,15 +4,15 @@
 
 <p align="center">
   <a href="https://github.com/17media/dad/releases">
-    <img src="https://img.shields.io/github/release/17media/dad.svg?style=flat-square&" />
+    <img src="https://flat.badgen.net/github/release/17media/dad" />
   </a>
-  <a href="https://travis-ci.org/17media/dad" alt="Build Status">
-    <img src="https://img.shields.io/travis/17media/dad/master.svg?style=flat-square&" />
+  <a href="https://circleci.com/gh/17media/dad" alt="Build Status">
+    <img src="https://flat.badgen.net/circleci/github/17media/dad/master" />
   </a>
   <a href="https://codecov.io/gh/17media/dad" alt="Coverage">
-    <img src="https://img.shields.io/codecov/c/github/17media/dad/master.svg?style=flat-square&" />
+    <img src="https://flat.badgen.net/codecov/c/github/17media/dad" />
   </a>
-  <img src="https://img.shields.io/github/license/17media/dad.svg?style=flat-square&" />
+  <img src="https://flat.badgen.net/github/license/17media/dad" />
 </p>
 
 
@@ -70,7 +70,7 @@ You can omit `HH:mm:ss`, dad will help you auto suffix `00`.
 ## Regions
 Current works regions for event:
 
-`tw`, `hk`, `ja` and `indo`
+`tw`, `hk` and `ja`
 
 ## API
 

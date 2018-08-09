@@ -1,4 +1,4 @@
-const prefix0 = (stringOfNumber) => {
+const prefix0 = (stringOfNumber: number | string): string => {
   const n = String(stringOfNumber);
 
   if (n.length < 2) {

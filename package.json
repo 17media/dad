@@ -3,39 +3,62 @@
   "version": "2.2.0",
   "repository": "https://github.com/17media/dad.git",
   "author": "Rocky Wu <rocky@17.media>",
-  "main": "dist/dad.js",
+  "main": "src/index.js",
   "license": "MIT",
   "devDependencies": {
-    "@17media/eslint-config-17media": "^1.2.0",
-    "@types/jest": "^22.1.3",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.18.1",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-react": "^7.7.0",
+    "@17media/event-ts-base": "github:17media/ts-base#v3.0.1-18.8.9",
+    "@types/gulp": "^4.0.5",
+    "@types/gulp-rename": "^0.0.33",
+    "@types/gulp-size": "^2.1.1",
+    "@types/pump": "^1.0.1",
+    "@types/typescript": "^2.0.0",
     "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-size": "^3.0.0",
-    "gulp-uglify-es": "^1.0.1",
-    "jest": "^22.4.2",
+    "gulp-uglify-es": "^1.0.4",
     "pump": "^3.0.0",
-    "rollup": "^0.56.3",
-    "rollup-plugin-babel": "^3.0.3",
-    "sh-exec": "^0.1.1"
+    "sh-exec": "^0.1.1",
+    "typescript": "^3.0.1"
   },
   "dependencies": {
     "ienv": "^1.0.0"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/**"
-    ]
-  },
   "scripts": {
     "test": "jest src --coverage",
-    "lint": "eslint ./ --ignore-path ./.gitignore",
-    "build": "rm -rf out && babel src --out-dir out && NODE_ENV=production node scripts/build.dev"
+    "lint": "tslint -p ./",
+    "build": "rm -rf out && tsc && cp -r README.md package.json out/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
   }
 }

@@ -1,0 +1,145 @@
+version: 2
+
+vars:
+  init: &init
+    environment:
+        TZ: Asia/Taipei
+    docker:
+      - image: circleci/node:8
+
+  save_node_modules:  &save_node_modules
+    save_cache:
+      key: node_modules#{{ checksum "yarn.lock" }}
+      paths:
+        - node_modules
+
+  restore_node_modules:  &restore_node_modules
+    restore_cache:
+      key: node_modules#{{ checksum "yarn.lock" }}
+
+  save_build:  &save_build
+    save_cache:
+      key: out#{{ .Revision }}
+      paths:
+        - out
+
+  restore_build:  &restore_build
+    restore_cache:
+      key: out#{{ .Revision }}
+
+  branch_not_deploy: &branch_not_deploy
+    filters:
+      branches:
+        ignore:
+          - master
+
+  branch_is_deploy: &branch_is_deploy
+    filters:
+      branches:
+        only:
+          - master
+
+  setup_docker: &setup_docker
+    setup_remote_docker:
+      docker_layer_caching: true
+
+  setup_npm: &setup_npm
+    run:
+      name: Setup NPM
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+  setup_git: &setup_git
+    run:
+      name: Setup Git
+      command: |
+        git config --global user.name "CircleCI"
+        git config --global user.email "auto_deploy@circleci.com"
+
+  export_env: &export_env
+    run:
+      name: Export Env
+      command: |
+        echo 'export IMAGE=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_SHA1' >> $BASH_ENV
+        echo 'export GIT_TAG=v$(cat package.json | grep version | cut -d '\''"'\'' -f4)' >> $BASH_ENV
+        echo 'export GIT_REPO=https://$GH_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git' >> $BASH_ENV
+
+        source $BASH_ENV
+        echo $IMAGE
+        echo $GIT_TAG
+        echo $GIT_REPO
+
+  push_coverage: &push_coverage
+    run: curl -s https://codecov.io/bash | bash
+
+jobs:
+  lint:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn lint
+
+  test:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn test
+      - *push_coverage
+
+  build:
+    <<: *init
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run: yarn
+      - *save_node_modules
+      - run: yarn build
+      - *save_build
+
+  deploy:
+    <<: *init
+    steps:
+      - *restore_build
+      - *setup_git
+      - *export_env
+      - run:
+        name: Deploy to GitHub
+        command: |
+            cd out
+            git commit -anm "$GIT_TAG"
+            git push $GIT_REPO master:latest -f
+            git push $GIT_REPO master:$GIT_TAG
+            git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
+
+  npm publish:
+    <<: *init
+    steps:
+      - checkout
+      - *setup_npm
+      - run:
+          name: Create publish folder out/
+          command: mkdir out && cp -r bin package.json index.js out/
+      - run: npm publish out
+
+workflows:
+  version: 2
+  Testing:
+    jobs:
+      - test:
+          <<: *branch_not_deploy
+      - lint:
+          <<: *branch_not_deploy
+      - build:
+          <<: *branch_not_deploy
+  Deploying:
+      - build:
+          <<: *branch_is_deploy
+      - deploy:
+          <<: *branch_is_deploy
+          requires:
+            - build

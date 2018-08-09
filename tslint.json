@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@17media/event-ts-base/tslint"
+  ]
+}

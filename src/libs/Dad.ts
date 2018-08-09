@@ -1,15 +1,11 @@
 import toSec from '../utils/toSec';
-import secToDate from '../utils/secToDate';
+import secToDate, { IDadDate } from '../utils/secToDate';
 import isValidDateFormat from '../utils/isValidDateFormat';
 import unifyTimeFormat from '../utils/unifyTimeFormat';
 
-
 const wm = new WeakMap();
 export default class Dad {
-  /**
-   * @param {String | Number} dateOrSec
-   */
-  constructor(inputValue) {
+  constructor(inputValue: string | number) {
     if (!/^(string|number)$/.test(typeof inputValue)) {
       throw new Error('Invaild type. it should be `string` | `number`');
     }
@@ -20,7 +16,9 @@ export default class Dad {
       dateOrSec = unifyTimeFormat(inputValue);
 
       if (!isValidDateFormat(dateOrSec)) {
-        throw new Error('Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`');
+        throw new Error(
+          'Invaild date string format, Please pass `YYYY-MM-DD HH:mm:ss`',
+        );
       }
     } else {
       dateOrSec = inputValue;
@@ -31,7 +29,7 @@ export default class Dad {
     p.dateOrSec = dateOrSec;
   }
 
-  get ja() {
+  get ja(): number | IDadDate {
     const p = wm.get(this);
 
     if (typeof p.dateOrSec === 'number') {
@@ -41,7 +39,7 @@ export default class Dad {
     return toSec(new Date(`${p.dateOrSec}+09:00`));
   }
 
-  get tw() {
+  get tw(): number | IDadDate {
     const p = wm.get(this);
 
     if (typeof p.dateOrSec === 'number') {
@@ -51,17 +49,17 @@ export default class Dad {
     return toSec(new Date(`${p.dateOrSec}+08:00`));
   }
 
-  get hk() {
+  get hk(): number | IDadDate {
     return this.tw;
   }
 
-  get indo() {
-    const p = wm.get(this);
+  // get indo(): number | IDadDate {
+  //   const p = wm.get(this);
 
-    if (typeof p.dateOrSec === 'number') {
-      return secToDate(7)(p.dateOrSec);
-    }
+  //   if (typeof p.dateOrSec === 'number') {
+  //     return secToDate(7)(p.dateOrSec);
+  //   }
 
-    return toSec(new Date(`${p.dateOrSec}+07:00`));
-  }
+  //   return toSec(new Date(`${p.dateOrSec}+07:00`));
+  // }
 }
