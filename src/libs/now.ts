@@ -3,7 +3,7 @@ import toSec from '../utils/toSec';
 import isValidDateFormat from '../utils/isValidDateFormat';
 import unifyTimeFormat from '../utils/unifyTimeFormat';
 
-let startTime;
+let startTime: number;
 
 const now = () => {
   const currentTime = Date.now();
@@ -31,6 +31,4 @@ const now = () => {
 
 export default now;
 
-export {
-  now,
-};
+export { now };

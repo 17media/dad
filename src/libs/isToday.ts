@@ -9,8 +9,6 @@ const isToday = (sec = 0) => {
   return new Date(ms).toDateString() === currentDate.toDateString();
 };
 
-export {
-  isToday,
-};
+export { isToday };
 
 export default isToday;

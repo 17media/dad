@@ -1,12 +1,16 @@
-import { global, isNode } from 'ienv';
+import { isNode } from 'ienv';
 
-const qsParser = (qstring = '') => {
+export interface IQueryString {
+  [key: string]: string;
+}
+
+const qsParser = (qstring = ''): IQueryString => {
   const qsObj = {};
-  const qs = qstring || (
-    isNode
+  const qs =
+    qstring ||
+    (isNode
       ? process.argv.slice(2).join('&')
-      : decodeURIComponent(global.location.search.slice(1))
-  );
+      : decodeURIComponent(window.location.search.slice(1)));
 
   if (qs) {
     qs.split('&').forEach((nameValue) => {

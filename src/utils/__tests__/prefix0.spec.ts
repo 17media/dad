@@ -6,7 +6,7 @@ describe('Test `prefix0` Spec', () => {
     expect(prefix0('9')).toBe('09');
   });
 
-  it('shouldn\'t be prefixed ', () => {
+  it("shouldn't be prefixed ", () => {
     expect(prefix0(10)).toBe('10');
     expect(prefix0('10')).toBe('10');
   });
