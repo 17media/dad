@@ -66,7 +66,6 @@ vars:
         source $BASH_ENV
         echo $IMAGE
         echo $GIT_TAG
-        echo $GIT_REPO
 
   push_coverage: &push_coverage
     run: curl -s https://codecov.io/bash | bash
@@ -104,17 +103,20 @@ jobs:
   deploy:
     <<: *init
     steps:
+      - checkout
       - *restore_build
       - *setup_git
       - *export_env
       - run:
-        name: Deploy to GitHub
-        command: |
-            cd out
-            git commit -anm "$GIT_TAG"
-            git push $GIT_REPO master:latest -f
-            git push $GIT_REPO master:$GIT_TAG
-            git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
+          name: Deploy to GitHub
+          command: |
+              cd out
+              git init
+              git add .
+              git commit -nm "$GIT_TAG"
+              git push $GIT_REPO master:latest -f
+              git push $GIT_REPO master:$GIT_TAG
+              git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
 
   npm publish:
     <<: *init
