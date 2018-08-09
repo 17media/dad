@@ -112,7 +112,8 @@ jobs:
           command: |
               cd out
               git init
-              git commit -anm "$GIT_TAG"
+              git add .
+              git commit -nm "$GIT_TAG"
               git push $GIT_REPO master:latest -f
               git push $GIT_REPO master:$GIT_TAG
               git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
