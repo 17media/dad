@@ -104,6 +104,7 @@ jobs:
   deploy:
     <<: *init
     steps:
+      - checkout
       - *restore_build
       - *setup_git
       - *export_env
@@ -111,6 +112,7 @@ jobs:
           name: Deploy to GitHub
           command: |
               cd out
+              git init
               git commit -anm "$GIT_TAG"
               git push $GIT_REPO master:latest -f
               git push $GIT_REPO master:$GIT_TAG
