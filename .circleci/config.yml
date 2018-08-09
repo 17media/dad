@@ -137,6 +137,7 @@ workflows:
       - build:
           <<: *branch_not_deploy
   Deploying:
+    jobs:
       - build:
           <<: *branch_is_deploy
       - deploy:
