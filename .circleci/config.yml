@@ -108,13 +108,13 @@ jobs:
       - *setup_git
       - *export_env
       - run:
-        name: Deploy to GitHub
-        command: |
-            cd out
-            git commit -anm "$GIT_TAG"
-            git push $GIT_REPO master:latest -f
-            git push $GIT_REPO master:$GIT_TAG
-            git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
+          name: Deploy to GitHub
+          command: |
+              cd out
+              git commit -anm "$GIT_TAG"
+              git push $GIT_REPO master:latest -f
+              git push $GIT_REPO master:$GIT_TAG
+              git tag $GIT_TAG && git push $GIT_REPO $GIT_TAG
 
   npm publish:
     <<: *init
