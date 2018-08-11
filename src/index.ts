@@ -1,4 +1,4 @@
-import { dad } from './libs/dad';
+import dad from './libs/dad';
 import { IDadDate } from './utils/secToDate';
 
 import isToday from './libs/isToday';
