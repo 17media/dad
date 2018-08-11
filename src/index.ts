@@ -32,17 +32,7 @@ export function ja(value: DateStringOrSeconds) {
   return dad(value).ja;
 }
 
-/**
- *
- * @param value date string YYYY-MM-DD hh:mm:ss (+08:00) | timestamp
- *
- */
-export function hk(value: string): number;
-export function hk(value: number): IDadDate;
-export function hk(value: DateStringOrSeconds) {
-  if (typeof value === 'string') return dad(value).tw;
-  return dad(value).tw;
-}
+export const hk = tw;
 
 export default dad;
 exports = dad;
