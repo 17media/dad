@@ -2,7 +2,7 @@ import { dad } from './libs/dad';
 import { IDadDate } from './utils/secToDate';
 
 import isToday from './libs/isToday';
-import now from '../out/src';
+import now from './libs/now';
 
 export { now, isToday };
 
