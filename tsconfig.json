@@ -23,7 +23,7 @@
     ],
     // "allowJs": true,
     // "checkJs": true,
-    "removeComments": true,
+    "removeComments": false,
     "jsx": "react",
     "resolveJsonModule": true,
     "esModuleInterop": true,
