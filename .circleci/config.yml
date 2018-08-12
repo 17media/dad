@@ -32,6 +32,8 @@ vars:
       branches:
         ignore:
           - master
+          - /^v\d{1,3}\./
+          - latest
 
   branch_is_deploy: &branch_is_deploy
     filters:
