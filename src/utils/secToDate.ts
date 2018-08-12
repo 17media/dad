@@ -11,7 +11,7 @@ export interface IDadDate {
 
   ISO: string;
 
-  format: (str: string) => string;
+  format: (str?: string) => string;
 }
 
 const secToDate = (tz = 8) => (sec = 0): IDadDate => {
@@ -27,7 +27,11 @@ const secToDate = (tz = 8) => (sec = 0): IDadDate => {
   const seconds = D.getUTCSeconds();
   const day = D.getUTCDay();
 
-  const format = (str = '') =>
+  /**
+   *
+   * @param str - Format date string. default: `YYYY-MM-DDThh:mm:ss`
+   */
+  const format = (str = 'YYYY-MM-DDThh:mm:ss') =>
     str
       .replace(/[yY]+/, (Y) => String(year).slice(0 - Y.length))
       .replace(/M+/, (MM) => {
@@ -42,8 +46,6 @@ const secToDate = (tz = 8) => (sec = 0): IDadDate => {
         (s) => (s.length > 1 ? prefix0(seconds) : String(seconds)),
       );
 
-  const ISO = format('YYYY-MM-DDThh:mm:ss');
-
   return {
     year,
     month,
@@ -52,9 +54,11 @@ const secToDate = (tz = 8) => (sec = 0): IDadDate => {
     minutes,
     seconds,
     day,
-    ISO,
     format,
-  } as IDadDate;
+    get ISO() {
+      return this.format();
+    },
+  };
 };
 
 export default secToDate;

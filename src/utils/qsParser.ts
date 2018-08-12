@@ -1,13 +1,13 @@
 import { isNode } from 'ienv';
 
-export interface IQueryString {
+export interface QueryString {
   [key: string]: string;
 }
 
-const qsParser = (qstring = ''): IQueryString => {
+const qsParser = (qString = ''): QueryString => {
   const qsObj = {};
   const qs =
-    qstring ||
+    qString ||
     (isNode
       ? process.argv.slice(2).join('&')
       : decodeURIComponent(window.location.search.slice(1)));
