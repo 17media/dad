@@ -1,4 +1,4 @@
-import { isToday } from '../isToday';
+import isToday from '../isToday';
 
 describe('isToday  functionality', () => {
   it('return true if given time is during today', () => {

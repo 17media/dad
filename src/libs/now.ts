@@ -30,5 +30,3 @@ const now = () => {
 };
 
 export default now;
-
-export { now };

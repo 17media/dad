@@ -27,7 +27,7 @@
 ## Installation
 
 ```sh
-$ yarn add https://github.com/17media/dad#latest
+$ yarn add github:17media/dad\#latest
 ```
 
 ## Convention

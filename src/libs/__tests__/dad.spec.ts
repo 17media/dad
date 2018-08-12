@@ -2,25 +2,25 @@ import dad, { tw, hk, ja } from '../../';
 
 describe('Dad functionality', () => {
   it('return time in ms where time zone is +8:00', () => {
-    const datetime = Math.floor(
+    const dateTime = Math.floor(
       new Date('2017-12-13 00:00:00+08:00').getTime() / 1000,
     );
-    expect(dad('2017-12-13').tw).toBe(datetime);
+    expect(dad('2017-12-13').tw).toBe(dateTime);
 
-    expect(tw('2017-12-13')).toBe(datetime);
+    expect(tw('2017-12-13')).toBe(dateTime);
 
-    expect(dad('2017-12-13').hk).toBe(datetime);
+    expect(dad('2017-12-13').hk).toBe(dateTime);
 
-    expect(hk('2017-12-13')).toBe(datetime);
+    expect(hk('2017-12-13')).toBe(dateTime);
   });
 
   it('return time in ms where time zone is +9:00', () => {
-    const datetime = Math.floor(
+    const dateTime = Math.floor(
       new Date('2017-12-13 00:00:00+09:00').getTime() / 1000,
     );
-    expect(dad('2017-12-13').ja).toBe(datetime);
+    expect(dad('2017-12-13').ja).toBe(dateTime);
 
-    expect(ja('2017-12-13')).toBe(datetime);
+    expect(ja('2017-12-13')).toBe(dateTime);
   });
 
   // it('return time in ms where time zone is +7:00', () => {
@@ -35,7 +35,7 @@ describe('Dad functionality', () => {
   it('throw an error if date format is incorrect', () => {
     expect(() => {
       dad('2017/13/32');
-    }).toThrowError('Invaild date string format');
+    }).toThrowError('Invalid date string format');
   });
 
   it('if input is second number', () => {
@@ -74,6 +74,6 @@ describe('Dad functionality', () => {
   it('Invaild type', () => {
     expect(() => {
       dad({} as any);
-    }).toThrowError('Invaild type');
+    }).toThrowError('Invalid type');
   });
 });

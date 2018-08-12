@@ -1,4 +1,4 @@
-import { now } from '../now';
+import now from '../now';
 
 describe('now functionality', () => {
   it('should be equal to current time if no arguments', () => {
