@@ -1,0 +1,64 @@
+{
+  "name": "@17media/dad",
+  "version": "3.0.1",
+  "repository": "https://github.com/17media/dad.git",
+  "author": "Rocky Wu <rocky@17.media>",
+  "main": "src/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@17media/event-ts-base": "github:17media/ts-base#v3.0.1-18.8.9",
+    "@types/gulp": "^4.0.5",
+    "@types/gulp-rename": "^0.0.33",
+    "@types/gulp-size": "^2.1.1",
+    "@types/pump": "^1.0.1",
+    "@types/typescript": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify-es": "^1.0.4",
+    "pump": "^3.0.0",
+    "sh-exec": "^0.1.1",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "ienv": "^1.0.0"
+  },
+  "scripts": {
+    "test": "jest src --coverage",
+    "lint": "tslint -p ./",
+    "build": "rm -rf out && tsc && cp -r README.md package.json out/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  }
+}
