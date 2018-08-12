@@ -1,6 +1,6 @@
 import prefix0 from './prefix0';
 
-export interface IDadDate {
+export interface DadDate {
   year: number;
   month: number;
   date: number;
@@ -14,7 +14,7 @@ export interface IDadDate {
   format: (str?: string) => string;
 }
 
-const secToDate = (tz = 8) => (sec = 0): IDadDate => {
+const secToDate = (tz = 8) => (sec = 0): DadDate => {
   const D = new Date(sec * 1000);
 
   D.setTime(+D + tz * 60 * 60 * 1000);

@@ -1,12 +1,12 @@
 import toSec from '../utils/toSec';
-import secToDate, { IDadDate } from '../utils/secToDate';
+import secToDate, { DadDate } from '../utils/secToDate';
 import isValidDateFormat from '../utils/isValidDateFormat';
 import unifyTimeFormat from '../utils/unifyTimeFormat';
 
-export interface DadDate {
-  readonly tw: IDadDate;
-  readonly ja: IDadDate;
-  readonly hk: IDadDate;
+export interface DadDateString {
+  readonly tw: DadDate;
+  readonly ja: DadDate;
+  readonly hk: DadDate;
 }
 
 export interface DadTime {
@@ -20,7 +20,7 @@ export interface DadTime {
  * @param value date string YYYY-MM-DD hh:mm:ss | seconds<number>
  */
 export function dad(value: string): DadTime;
-export function dad(value: number): DadDate;
+export function dad(value: number): DadDateString;
 
 export function dad(value: string | number) {
   if (!/^(string|number)$/.test(typeof value)) {
