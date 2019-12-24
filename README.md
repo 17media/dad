@@ -101,5 +101,5 @@ In Browser:
 
 In Node:
 ```sh
-$ ndoe entry.js --dad.now="2017-12-12 19:00" --auto
+$ ndoe entry.js --dad.now=2017-12-12T19:00 --auto
 ```
